@@ -1,3 +1,4 @@
+import csv
 import datetime as dt
 from pathlib import Path
 
@@ -15,12 +16,14 @@ class PepParsePipeline:
         return item
 
     def close_spider(self, spider):
-        total = 0
         now = dt.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
         filename = BASE_DIR / 'results' / f'status_summary_{now}.csv'
+        heading = ('Статус', 'Количество')
+        total = 'Total'
         with open(filename, mode='w', encoding='utf-8') as f:
-            f.write('Статус,Количество\n')
-            for key, value in self.status_sum.items():
-                f.write(f'{key}, {value}\n')
-                total += int(value)
-            f.write(f'Total,{total}\n')
+            writer = csv.writer(f)
+            writer.writerows([
+                heading,
+                *(self.status_sum.items()),
+                [total, sum(self.status_sum.values())]
+            ])
