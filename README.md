@@ -2,7 +2,7 @@
 [![Python](https://img.shields.io/badge/-Python-464646?style=flat&logo=Python&logoColor=ffffff&color=043A6B)](https://www.python.org/)
 [![Scrapy](https://img.shields.io/badge/-Scrapy-464646?style=flat&logo=Scrapy&logoColor=ffffff&color=043A6B)](https://www.djangoproject.com/)
 
-### Описание
+### Описание:
 #### Асинхронный парсер позволяет собирать данные обо всех документах PEP, считать общее количество документов PEP и сохранять результаты в табличном виде в csv-файл.
 
 ### Автор проекта:
